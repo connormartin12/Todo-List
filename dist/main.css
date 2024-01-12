@@ -1,0 +1,42 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    align-items: center;
+    background-color: rgb(108, 216, 108);
+    display: flex;
+    font-size: 40px;
+    font-weight: 400;
+    /* justify-content: center; */
+    padding: 12px;
+}
+
+#content {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.sidebar {
+    display: flex;
+    flex: .25;
+}
+
+.task-list {
+    display: flex;
+    flex: .75;
+}
