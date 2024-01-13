@@ -7,36 +7,45 @@ function clearPage(parent) {
 function loadHomePage(parent) {
     // Create sidebar
     let sidebar = document.createElement('div');
-    sidebar.classList.add('sidebar');
-    let categories = document.createElement('ul');
-    categories.classList.add('list');
-    taskCategories.forEach(taskCategory => {
-        let newCategory = document.createElement('li');
-        newCategory.textContent = taskCategory;
-        categories.appendChild(newCategory);
-    });
-    sidebar.appendChild(categories);
+    sidebar.id = 'sidebar';
     parent.appendChild(sidebar);
 
     // Create task list
     let taskListContainer = document.createElement('div');
-    taskListContainer.classList.add('task-list');
+    taskListContainer.id = 'task-list-container';
     parent.appendChild(taskListContainer);
 }
 
-function updateHomePage(parent) {
-    // Update task list to active category tab
-    let taskContainer = document.querySelector('.task-list');
-    taskContainer.textContent = '';
-    let tasks = document.createElement('ul');
-    tasks.classList.add('list');
-    allTasks.forEach(task => {
-        let newTask = document.createElement('li');
-        newTask.textContent = task.title;
-        tasks.appendChild(newTask);
+function updateTaskCategories(activeCategory) {
+    let sidebarContainer = document.getElementById('sidebar');
+    sidebarContainer.textContent = '';
+    let categories = document.createElement('ul');
+    categories.classList.add('list');
+    taskCategories.forEach(taskCategory => {
+        let newCategory = document.createElement('li');
+        newCategory.classList.add('category');
+        if (taskCategory === activeCategory)
+            newCategory.classList.add('category-active');
+        newCategory.textContent = taskCategory;
+        categories.appendChild(newCategory);
     });
-    taskContainer.appendChild(tasks);
-    parent.appendChild(taskContainer);
+    sidebarContainer.appendChild(categories);
 }
 
-export { clearPage, loadHomePage, updateHomePage };
+function updateTaskList() {
+    // Update task list to active category tab
+    let taskListContainer = document.getElementById('task-list-container');
+    taskListContainer.textContent = '';
+    let taskList = document.createElement('ul');
+    taskList.classList.add('list');
+    taskList.id = 'task-list';
+    allTasks.forEach(task => {
+        let newTask = document.createElement('li');
+        newTask.classList.add('task');
+        newTask.textContent = task.title;
+        taskList.appendChild(newTask);
+    });
+    taskListContainer.appendChild(taskList);
+}
+
+export { clearPage, loadHomePage, updateTaskList, updateTaskCategories };

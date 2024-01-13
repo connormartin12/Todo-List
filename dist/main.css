@@ -21,22 +21,70 @@ body {
     display: flex;
     font-size: 40px;
     font-weight: 400;
-    /* justify-content: center; */
     padding: 12px;
 }
 
 #content {
+    background-color: rgb(233, 233, 233);
     display: flex;
     flex: 1;
     flex-direction: row;
 }
 
-.sidebar {
+#sidebar {
+    background-color: white;
+    border-radius: 12px;
     display: flex;
-    flex: .25;
+    flex: .2;
+    flex-direction: column;
+    margin-bottom: 12px;
+    margin-left: 12px;
+    margin-top: 12px;
+    padding: 12px;
 }
 
-.task-list {
+.category {
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    box-sizing: border-box;
     display: flex;
-    flex: .75;
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    margin-right: 20px;
+    padding: 4px;
+    padding-left: 12px;
+}
+
+.category-active {
+    background-color: rgb(223, 223, 223);
+}
+
+#task-list-container {
+    display: flex;
+    flex: .8;
+}
+
+#task-list {
+    background-color: white;
+    border-radius: 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: 12px;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.task {
+    background-color: rgb(236, 236, 236);
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 8px;
+    padding: 12px;
+    width: 100%;
 }

@@ -1,7 +1,7 @@
-import { clearPage, loadHomePage, updateHomePage } from './page-load';
-import { Task, allTasks } from './task';
+import { clearPage, loadHomePage, updateTaskList, updateTaskCategories } from './page-load';
 
 const contentDiv = document.querySelector('#content');
 clearPage(contentDiv);
 loadHomePage(contentDiv);
-updateHomePage(contentDiv);
+updateTaskCategories('All Tasks');
+updateTaskList();
